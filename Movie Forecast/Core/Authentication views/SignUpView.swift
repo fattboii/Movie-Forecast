@@ -10,45 +10,13 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 
-@MainActor
-final class SignUpViewModel: ObservableObject {
-    //variable for email and password entered in textfields
-    @Published var email: String = ""
-    @Published var password: String = ""
-    
-    //boolean function that checks if user can sign up
-    func canSignUp() -> Bool{
-        //checks if the email or password is emtpy
-        guard !email.isEmpty, !password.isEmpty else{
-            return false
-        }
-        
-        //if password and email are not empty it will try to sign up user through firebase
-        //returns true if creating user is successful
-        //returns false if creating user fails
-            Task{
-                do{
-                    //trys to create user in firebase
-                    let returnUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
-                    print(returnUserData)
-                    print("user created")
-                    return true
-                } catch {
-                    print("ERROR \(error)")
-                    return false
-                }
-            }
-        return true
-    }
-    
-}
-
-
 struct SignUpView: View{
+    //varible for email and password textfield
+    @State var email: String = ""
+    @State var password: String = ""
     
     @Binding var currentViewShowing: AuthProcess
     
-    @StateObject private var viewModel = SignUpViewModel()
     
     //boolean for error message visability
     @State private var credentialsErrorShowing: Bool = false
@@ -78,16 +46,16 @@ struct SignUpView: View{
                     //email field hstack
                     HStack {
                         Image(systemName: "person.fill")
-                        TextField("Email", text: $viewModel.email)
+                        TextField("Email", text: $email)
                         
                         Spacer()
                         //checks if email count is greater than 0
-                        if(viewModel.email.count != 0){
+                        if(email.count != 0){
                             //if email meets requirements image is a green check mark
                             //if email does not meet requirements image is a red X
-                            Image(systemName: viewModel.email.isValidEmail() ? "checkmark" : "xmark")
+                            Image(systemName: email.isValidEmail() ? "checkmark" : "xmark")
                                 .fontWeight(.bold)
-                                .foregroundStyle(viewModel.email.isValidEmail() ? Color.green : Color.red)
+                                .foregroundStyle(email.isValidEmail() ? Color.green : Color.red)
                         }
                     }
                     .padding()
@@ -100,17 +68,17 @@ struct SignUpView: View{
                     //password field hstack
                     HStack {
                         Image(systemName: "lock.fill")
-                        SecureField("Password", text: $viewModel.password)
+                        SecureField("Password", text: $password)
                         
                         Spacer()
                         
                         //adds image if password is entered or count is not 0
-                        if(viewModel.password.count != 0) {
+                        if(password.count != 0) {
                             //if password meets requirements image is a green checkmark
                             //if password does not meet requirements image is a red X
-                            Image(systemName: isValidPassword(viewModel.password) ? "checkmark" : "xmark")
+                            Image(systemName: isValidPassword(password) ? "checkmark" : "xmark")
                                 .fontWeight(.bold)
-                                .foregroundStyle(isValidPassword(viewModel.password) ? Color.green : Color.red)
+                                .foregroundStyle(isValidPassword(password) ? Color.green : Color.red)
                         }
                     }
                     .padding()
@@ -143,14 +111,21 @@ struct SignUpView: View{
                         .background(Color(hex: "306599"))
                         .clipShape(.rect(cornerRadius: 10))
                         .padding(.bottom)
-                        .alert("Email or Password field is empty", isPresented: $credentialsErrorShowing, actions: {})
+                    //disables sign up button if email or password textfield is empty
+                        .disabled(email.isEmpty || password.isEmpty)
+                        .opacity(email.isEmpty || password.isEmpty ? 0.5 : 1)
+                        .alert("There may have been a connection error or account may already exist.", isPresented: $credentialsErrorShowing, actions: {})
                     
                     Button("Already have an account?", action: showLoginView)
+                        .foregroundColor(.blue)
                     
-                }.padding().background(
-                    RoundedRectangle(cornerRadius: 15).fill(Color(hex: "EAFBFC"))
-                ).padding()
-                        
+                }
+                .foregroundColor(Color.black)
+                .padding()
+                .background(Color(hex: "EAFBFC"))
+                .clipShape(.rect(cornerRadius: 15))
+                .padding()
+                
                 Spacer()
                 Spacer()
             }
@@ -170,12 +145,14 @@ extension SignUpView {
     
     //shows login view when user is create in firebase
     private func signUp() {
-        let signedUp = viewModel.canSignUp()
-        print("return value: \(signedUp)")
-        if signedUp {
-            showLoginView()
-        }else{
-            credentialsErrorShowing = true
+        Task {
+            do {
+                //attempts
+                let returnUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
+                showLoginView()
+            } catch {
+                credentialsErrorShowing = true
+            }
         }
     }
     

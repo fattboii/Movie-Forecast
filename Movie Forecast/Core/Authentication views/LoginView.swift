@@ -24,12 +24,19 @@ struct LoginView: View{
             Color(hex: "151F24" ).edgesIgnoringSafeArea(.all)
             VStack{
                 Spacer()
+                //title
                 HStack{
-                    Text("Movie Forecast").font(.largeTitle).bold().foregroundStyle(Color.white)
-                }.padding().padding(.top)
+                    Text("Movie Forecast").font(.largeTitle).bold()
+                        .foregroundStyle(Color.white)
+                }
+                .padding()
+                .padding(.top)
                 Spacer()
+                //content form vstacj
                 VStack{
-                    Text("Login").font(.title).bold()
+                    Text("Login")
+                        .font(.title)
+                        .bold()
                     
                     HStack{
                         Image(systemName: "person.fill")
@@ -60,19 +67,19 @@ struct LoginView: View{
                         .background(Color(hex: "306599"))
                         .clipShape(.rect(cornerRadius: 10))
                         .padding(.bottom)
+                        .disabled(email.isEmpty || password.isEmpty)
+                        .opacity(email.isEmpty || password.isEmpty ? 0.5 : 1)
                         .alert("Incorrect Email or Password entered", isPresented: $credentialsErrorShowing, actions: {})
                     
-                    Button(action: {
-                        withAnimation{
-                            self.currentViewShowing = .signUp
-                        }
-                    }){
-                        Text("Don't have an account?")
-                    }
-                }.padding().background(
-                    RoundedRectangle(cornerRadius: 15).fill(Color(hex: "EAFBFC"))
-                ).padding()
-                        
+                    Button("Don't have an account?", action: showSigupView)
+                        .foregroundColor(.blue)
+                }
+                .foregroundColor(Color.black)
+                .padding()
+                .background(Color(hex: "EAFBFC"))
+                .clipShape(.rect(cornerRadius: 15))
+                .padding()
+                
                 Spacer()
                 Spacer()
                 
@@ -82,6 +89,7 @@ struct LoginView: View{
 }
 
 extension LoginView{
+    //login user
     private func login() {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let _ = error{
@@ -95,6 +103,12 @@ extension LoginView{
                     userID = authResult.user.uid
                 }
             }
+        }
+    }
+    //changes view to signup
+    private func showSigupView(){
+        withAnimation{
+            self.currentViewShowing = .signUp
         }
     }
 }
