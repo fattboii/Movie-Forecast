@@ -16,7 +16,7 @@ struct HomeView: View{
             ScrollView {
                 HStack {
                     Text("Now Playing")
-                        .font(.largeTitle)
+                        .font(.title)
                         .bold()
                         .padding(.leading, 15)
                     Spacer()
@@ -42,7 +42,7 @@ struct HomeView: View{
                 }.scrollIndicators(.hidden)
                 
                 Text("Upcoming")
-                    .font(.largeTitle)
+                    .font(.title)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 15)
@@ -68,14 +68,13 @@ struct HomeView: View{
                 .scrollIndicators(.hidden)
             }
             .background(Color(hex: "151F24"))
-            .foregroundStyle(Color.white)
-            .navigationTitle("Movie Forecast")
+            .navigationTitle("Home")
             
         }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView().preferredColorScheme(.dark)
 }
 

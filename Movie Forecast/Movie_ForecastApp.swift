@@ -17,7 +17,7 @@ struct Movie_ForecastApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().preferredColorScheme(.dark)
         }
     }
 }

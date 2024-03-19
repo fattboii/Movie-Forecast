@@ -13,13 +13,14 @@ struct LogoutView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Button("Sign Out", action: logOut)
+                Button("Log Out", action: logOut)
                     .foregroundStyle(Color.white)
                     .frame(maxWidth: .infinity)
-                    .padding()
+                    .padding(50)
                     .background(Color(hex: "306599"))
                     .clipShape(.rect(cornerRadius: 10))
                     .padding()
+                    .font(.largeTitle)
             }.navigationTitle("Movie Forecast")
         }
     }
