@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		CA5B9C4C2B93A588002BCFE3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B9C4B2B93A588002BCFE3 /* AuthenticationManager.swift */; };
+		CA8657D72BBBB7780080072D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CA8657D62BBBB7780080072D /* Alamofire */; };
+		CA8657DA2BBBB7C90080072D /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = CA8657D92BBBB7C90080072D /* URLImage */; };
+		CA8657DC2BBBB7C90080072D /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = CA8657DB2BBBB7C90080072D /* URLImageStore */; };
+		CA8657E12BBBB9E20080072D /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8657E02BBBB9E20080072D /* TMDBService.swift */; };
+		CA8657E32BBBBC080080072D /* MoviesSearched.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8657E22BBBBC080080072D /* MoviesSearched.swift */; };
+		CA8657E52BBBBC230080072D /* MoviesNowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8657E42BBBBC230080072D /* MoviesNowPlaying.swift */; };
+		CA8657E72BBBBC2F0080072D /* PopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8657E62BBBBC2F0080072D /* PopularMovies.swift */; };
+		CA8657E92BBBBDDC0080072D /* MovieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8657E82BBBBDDC0080072D /* MovieInfoView.swift */; };
 		CA93AF9F2B783DA0000286E0 /* Movie_ForecastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA93AF9E2B783DA0000286E0 /* Movie_ForecastApp.swift */; };
 		CA93AFA12B783DA0000286E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA93AFA02B783DA0000286E0 /* ContentView.swift */; };
 		CA93AFA32B783DA2000286E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA93AFA22B783DA2000286E0 /* Assets.xcassets */; };
@@ -47,10 +55,7 @@
 		CA93AFF12B78633B000286E0 /* String Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA93AFF02B78633B000286E0 /* String Extension.swift */; };
 		CA93AFF32B787742000286E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA93AFF22B787742000286E0 /* HomeView.swift */; };
 		CA9FA0DD2B9FE423000A9CE9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9FA0DC2B9FE423000A9CE9 /* Movie.swift */; };
-		CA9FA0E02B9FE608000A9CE9 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9FA0DF2B9FE608000A9CE9 /* MovieService.swift */; };
-		CA9FA0E22B9FED78000A9CE9 /* MovieStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9FA0E12B9FED78000A9CE9 /* MovieStore.swift */; };
 		CA9FA0E42B9FF230000A9CE9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9FA0E32B9FF230000A9CE9 /* Utils.swift */; };
-		CA9FA0E62BA00B50000A9CE9 /* MovieStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9FA0E52BA00B50000A9CE9 /* MovieStub.swift */; };
 		CAA3EC472B82D35500F007E7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA3EC462B82D35500F007E7 /* ProfileView.swift */; };
 		CAC2C1282B85A83C00456181 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2C1272B85A83C00456181 /* UserManager.swift */; };
 		CACBBC882BA11E6900C249AD /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACBBC872BA11E6900C249AD /* NavView.swift */; };
@@ -62,6 +67,11 @@
 
 /* Begin PBXFileReference section */
 		CA5B9C4B2B93A588002BCFE3 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		CA8657E02BBBB9E20080072D /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
+		CA8657E22BBBBC080080072D /* MoviesSearched.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearched.swift; sourceTree = "<group>"; };
+		CA8657E42BBBBC230080072D /* MoviesNowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesNowPlaying.swift; sourceTree = "<group>"; };
+		CA8657E62BBBBC2F0080072D /* PopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovies.swift; sourceTree = "<group>"; };
+		CA8657E82BBBBDDC0080072D /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
 		CA93AF9B2B783DA0000286E0 /* Movie Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Forecast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA93AF9E2B783DA0000286E0 /* Movie_ForecastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_ForecastApp.swift; sourceTree = "<group>"; };
 		CA93AFA02B783DA0000286E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,10 +85,7 @@
 		CA93AFF02B78633B000286E0 /* String Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extension.swift"; sourceTree = "<group>"; };
 		CA93AFF22B787742000286E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9FA0DC2B9FE423000A9CE9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		CA9FA0DF2B9FE608000A9CE9 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
-		CA9FA0E12B9FED78000A9CE9 /* MovieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStore.swift; sourceTree = "<group>"; };
 		CA9FA0E32B9FF230000A9CE9 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		CA9FA0E52BA00B50000A9CE9 /* MovieStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStub.swift; sourceTree = "<group>"; };
 		CAA3EC462B82D35500F007E7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CAC2C1272B85A83C00456181 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CACBBC872BA11E6900C249AD /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
@@ -94,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA93AFCC2B78615A000286E0 /* FirebaseDatabase in Frameworks */,
+				CA8657D72BBBB7780080072D /* Alamofire in Frameworks */,
 				CA93AFDA2B78615A000286E0 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				CA93AFD22B78615A000286E0 /* FirebaseFirestore in Frameworks */,
 				CA93AFBE2B78615A000286E0 /* FirebaseAnalyticsSwift in Frameworks */,
@@ -102,11 +110,13 @@
 				CA93AFE22B78615A000286E0 /* FirebaseMLModelDownloader in Frameworks */,
 				CA93AFD62B78615A000286E0 /* FirebaseFirestoreSwift in Frameworks */,
 				CA93AFC22B78615A000286E0 /* FirebaseAppCheck in Frameworks */,
+				CA8657DC2BBBB7C90080072D /* URLImageStore in Frameworks */,
 				CA93AFC02B78615A000286E0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				CA93AFC62B78615A000286E0 /* FirebaseAuth in Frameworks */,
 				CA93AFCA2B78615A000286E0 /* FirebaseCrashlytics in Frameworks */,
 				CA93AFEA2B78615A000286E0 /* FirebaseRemoteConfigSwift in Frameworks */,
 				CA93AFDC2B78615A000286E0 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				CA8657DA2BBBB7C90080072D /* URLImage in Frameworks */,
 				CA93AFCE2B78615A000286E0 /* FirebaseDatabaseSwift in Frameworks */,
 				CA93AFD82B78615A000286E0 /* FirebaseFunctions in Frameworks */,
 				CA93AFEE2B78615A000286E0 /* FirebaseStorageCombine-Community in Frameworks */,
@@ -126,6 +136,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA8657DD2BBBB9230080072D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CA93AFB02B784ACC000286E0 /* Color Extension.swift */,
+				CA93AFF02B78633B000286E0 /* String Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CA8657DE2BBBB9B80080072D /* TMDB */ = {
+			isa = PBXGroup;
+			children = (
+				CA8657DF2BBBB9D50080072D /* Services */,
+			);
+			path = TMDB;
+			sourceTree = "<group>";
+		};
+		CA8657DF2BBBB9D50080072D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CA8657E02BBBB9E20080072D /* TMDBService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		CA93AF922B783D9F000286E0 = {
 			isa = PBXGroup;
 			children = (
@@ -145,11 +180,11 @@
 		CA93AF9D2B783DA0000286E0 /* Movie Forecast */ = {
 			isa = PBXGroup;
 			children = (
+				CA8657DE2BBBB9B80080072D /* TMDB */,
+				CA8657DD2BBBB9230080072D /* Extension */,
 				CACBBC912BA15DEA00C249AD /* API */,
 				CA93AFB62B785C7E000286E0 /* GoogleService-Info.plist */,
-				CA93AFB02B784ACC000286E0 /* Color Extension.swift */,
 				CA93AF9E2B783DA0000286E0 /* Movie_ForecastApp.swift */,
-				CA93AFF02B78633B000286E0 /* String Extension.swift */,
 				CA93AFA22B783DA2000286E0 /* Assets.xcassets */,
 				CAA3EC442B82D29600F007E7 /* Core */,
 				CA93AFA42B783DA2000286E0 /* Preview Content */,
@@ -180,25 +215,11 @@
 			isa = PBXGroup;
 			children = (
 				CA9FA0DC2B9FE423000A9CE9 /* Movie.swift */,
-				CA9FA0E52BA00B50000A9CE9 /* MovieStub.swift */,
+				CA8657E22BBBBC080080072D /* MoviesSearched.swift */,
+				CA8657E42BBBBC230080072D /* MoviesNowPlaying.swift */,
+				CA8657E62BBBBC2F0080072D /* PopularMovies.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		CA9FA0DE2B9FE5E3000A9CE9 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				CA9FA0DF2B9FE608000A9CE9 /* MovieService.swift */,
-				CA9FA0E12B9FED78000A9CE9 /* MovieStore.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		CA9FA0E72BA00F69000A9CE9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		CAA3EC442B82D29600F007E7 /* Core */ = {
@@ -239,6 +260,7 @@
 				CACBBC8B2BA1223000C249AD /* SearchView.swift */,
 				CACBBC8D2BA1223A00C249AD /* MyMoviesView.swift */,
 				CACBBC8F2BA1224C00C249AD /* LogoutView.swift */,
+				CA8657E82BBBBDDC0080072D /* MovieInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,8 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				CA9FA0DB2B9FE3F3000A9CE9 /* Models */,
-				CA9FA0E72BA00F69000A9CE9 /* Resources */,
-				CA9FA0DE2B9FE5E3000A9CE9 /* Services */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -297,6 +317,9 @@
 				CA93AFE92B78615A000286E0 /* FirebaseRemoteConfigSwift */,
 				CA93AFEB2B78615A000286E0 /* FirebaseStorage */,
 				CA93AFED2B78615A000286E0 /* FirebaseStorageCombine-Community */,
+				CA8657D62BBBB7780080072D /* Alamofire */,
+				CA8657D92BBBB7C90080072D /* URLImage */,
+				CA8657DB2BBBB7C90080072D /* URLImageStore */,
 			);
 			productName = "Movie Forecast";
 			productReference = CA93AF9B2B783DA0000286E0 /* Movie Forecast.app */;
@@ -328,6 +351,8 @@
 			mainGroup = CA93AF922B783D9F000286E0;
 			packageReferences = (
 				CA93AFB82B78615A000286E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CA8657D52BBBB7780080072D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CA8657D82BBBB7C90080072D /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = CA93AF9C2B783DA0000286E0 /* Products */;
 			projectDirPath = "";
@@ -356,26 +381,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8657E72BBBBC2F0080072D /* PopularMovies.swift in Sources */,
 				CACBBC8A2BA1222200C249AD /* ShuffleView.swift in Sources */,
 				CACBBC8E2BA1223A00C249AD /* MyMoviesView.swift in Sources */,
 				CACBBC8C2BA1223000C249AD /* SearchView.swift in Sources */,
 				CA93AFB12B784ACC000286E0 /* Color Extension.swift in Sources */,
+				CA8657E52BBBBC230080072D /* MoviesNowPlaying.swift in Sources */,
 				CAA3EC472B82D35500F007E7 /* ProfileView.swift in Sources */,
 				CA9FA0DD2B9FE423000A9CE9 /* Movie.swift in Sources */,
 				CA5B9C4C2B93A588002BCFE3 /* AuthenticationManager.swift in Sources */,
 				CACBBC882BA11E6900C249AD /* NavView.swift in Sources */,
-				CA9FA0E02B9FE608000A9CE9 /* MovieService.swift in Sources */,
 				CA9FA0E42B9FF230000A9CE9 /* Utils.swift in Sources */,
+				CA8657E32BBBBC080080072D /* MoviesSearched.swift in Sources */,
 				CA93AFB32B785387000286E0 /* SignUpView.swift in Sources */,
-				CA9FA0E22B9FED78000A9CE9 /* MovieStore.swift in Sources */,
-				CA9FA0E62BA00B50000A9CE9 /* MovieStub.swift in Sources */,
 				CA93AFB52B785594000286E0 /* AuthView.swift in Sources */,
+				CA8657E92BBBBDDC0080072D /* MovieInfoView.swift in Sources */,
 				CA93AFAF2B783F34000286E0 /* LoginView.swift in Sources */,
 				CA93AFF12B78633B000286E0 /* String Extension.swift in Sources */,
 				CA93AFF32B787742000286E0 /* HomeView.swift in Sources */,
 				CA93AFA12B783DA0000286E0 /* ContentView.swift in Sources */,
 				CAC2C1282B85A83C00456181 /* UserManager.swift in Sources */,
 				CACBBC902BA1224C00C249AD /* LogoutView.swift in Sources */,
+				CA8657E12BBBB9E20080072D /* TMDBService.swift in Sources */,
 				CA93AF9F2B783DA0000286E0 /* Movie_ForecastApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,7 +544,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,7 +573,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -584,6 +611,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CA8657D52BBBB7780080072D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.8.1;
+			};
+		};
+		CA8657D82BBBB7C90080072D /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		CA93AFB82B78615A000286E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -595,6 +638,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CA8657D62BBBB7780080072D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA8657D52BBBB7780080072D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		CA8657D92BBBB7C90080072D /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA8657D82BBBB7C90080072D /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		CA8657DB2BBBB7C90080072D /* URLImageStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA8657D82BBBB7C90080072D /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
+		};
 		CA93AFB92B78615A000286E0 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CA93AFB82B78615A000286E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
