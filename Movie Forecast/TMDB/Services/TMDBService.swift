@@ -43,7 +43,7 @@ extension TMDBService {
     /// - Returns: if successful the function returns a json response given by TMDB api with the information of the movie
     func getMovie(id: String) async -> Result<Movie, Error> {
         
-        if let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)?language=en-US&append_to_response=videos,watch/providors") {
+        if let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)?language=en-US&append_to_response=videos,watch/providers") {
             let result = await getDataFromRequest(urlRequest: url)
             switch result {
             case .success(let data):

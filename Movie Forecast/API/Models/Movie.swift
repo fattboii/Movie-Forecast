@@ -12,23 +12,6 @@ struct MovieResponse: Decodable{
     let results: [Movie]
 }
 
-//struct Movie: Decodable, Identifiable{
-//    let id: Int
-//    let title: String
-//    let backdropPath: String?
-//    let posterPath: String?
-//    let overview: String
-//    let voteAverage: Double
-//    let voteCount: Int
-//    let runtime: Int?
-//
-//    var backdropURL: URL {
-//        return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath ?? "")")!
-//    }
-//    var posterURL: URL {
-//        return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
-//    }
-//}
 struct Movie: Codable, Identifiable, Hashable, Equatable{
     
 //    let adult: Bool
@@ -55,28 +38,7 @@ struct Movie: Codable, Identifiable, Hashable, Equatable{
     let voteAverage: Double
 //    let voteCount: Int
     var videos: Videos?
-    
-//    var description: String {
-//        originalTitle.description + "\n" +
-//        overview.description + "\n" +
-//        adult.description + "\n" +
-//        budget.description + "\n" +
-//        genres.description + "\n" +
-//        homepage.description + "\n" +
-//        id.description + "\n" +
-//        imdbID.description + "\n" +
-//        popularity.description + "\n" +
-//        productionCompanies.description + "\n" +
-//        productionCountries.description + "\n" +
-//        releaseDate.description + "\n" +
-//        revenue.description + "\n" +
-//        spokenLanguages.description + "\n" +
-//        status.description + "\n" +
-//        video.description + "\n" +
-//        voteAverage.description + "\n" +
-//        voteCount.description
-//        
-//    }
+    var watchProviders: WatchProviders?
 
     var backdropURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath ?? "")")!
@@ -84,7 +46,6 @@ struct Movie: Codable, Identifiable, Hashable, Equatable{
     var posterURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
     }
-    
     
     enum CodingKeys: String, CodingKey {
 //        case adult
@@ -109,12 +70,15 @@ struct Movie: Codable, Identifiable, Hashable, Equatable{
         case voteAverage = "vote_average"
 //        case voteCount = "vote_count"
         case videos
+        case watchProviders = "watch/providers"
     }
     
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         lhs.id == rhs.id &&
         lhs.runtime == rhs.runtime &&
-        lhs.genres == rhs.genres
+        lhs.genres == rhs.genres &&
+        lhs.watchProviders == rhs.watchProviders &&
+        lhs.videos == rhs.videos
     }
     func hash(into hasher: inout Hasher) { hasher.combine(id) }
 }
@@ -161,6 +125,10 @@ struct MResult: Codable, Hashable, Equatable{
     let official: Bool
     let publishedAt, id: String
 
+    var videoURL: URL {
+        return URL(string: "https://www.youtube.com/watch?v=\(key)")!
+    }
+    
     enum CodingKeys: String, CodingKey {
         case iso639_1 = "iso_639_1"
         case iso3166_1 = "iso_3166_1"
@@ -173,5 +141,69 @@ struct MResult: Codable, Hashable, Equatable{
         lhs.name == rhs.name
     }
     func hash(into hasher: inout Hasher) { hasher.combine(UUID().uuidString) }
+}
+
+// MARK: - WatchProviders
+struct WatchProviders: Codable, Hashable, Equatable{
+    let results: watchProvidersResults
+    
+    static func == (lhs: WatchProviders, rhs: WatchProviders) -> Bool {
+        lhs.results == rhs.results
+    }
+    func hash(into hasher: inout Hasher) { hasher.combine(UUID().uuidString) }
+}
+
+// MARK: - Watch Provider Results
+struct watchProvidersResults: Codable, Hashable, Equatable {
+    let mx: Providers?
+    let us: Providers?
+    enum CodingKeys: String, CodingKey {
+        case mx = "MX"
+        case us = "US"
+    }
+    static func == (lhs: watchProvidersResults, rhs: watchProvidersResults) -> Bool {
+        lhs.mx == rhs.mx &&
+        lhs.us == rhs.us
+    }
+    func hash(into hasher: inout Hasher) { hasher.combine(UUID().uuidString) }
+}
+// MARK: - Providers
+struct Providers: Codable, Hashable, Equatable {
+//    let link: String?
+    let buy, rent: [Buy]?
+    let flatrate: [Buy]?
+    
+    static func == (lhs: Providers, rhs: Providers) -> Bool {
+        lhs.buy == rhs.buy &&
+        lhs.rent == rhs.rent &&
+        lhs.flatrate == rhs.flatrate
+    }
+    func hash(into hasher: inout Hasher) { hasher.combine(UUID().uuidString) }
+}
+
+// MARK: - Buy
+struct Buy: Codable, Hashable, Equatable {
+    let logoPath: String
+//    let providerID: Int
+    let providerName: String
+//    let displayPriority: Int
+
+    var logoURL: URL {
+        return URL(string: "https://image.tmdb.org/t/p/original\(logoPath)")!
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case logoPath = "logo_path"
+//        case providerID = "provider_id"
+        case providerName = "provider_name"
+//        case displayPriority = "display_priority"
+    }
+    
+    static func == (lhs: Buy, rhs: Buy) -> Bool {
+        lhs.logoPath == rhs.logoPath &&
+        lhs.logoURL == rhs.logoURL
+    }
+    func hash(into hasher: inout Hasher) { hasher.combine(UUID().uuidString) }
     
 }
+
