@@ -7,6 +7,7 @@
 
 import Foundation
 
+///THINK I CAN DELETE
 // MARK: - MoviesSearched
 struct MoviesSearched: Codable {
     let page: Int

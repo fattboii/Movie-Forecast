@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+///THINK I CAN DELETE
 // MARK: - Popular
 struct PopularMovies: Codable {
 //    let page: Int

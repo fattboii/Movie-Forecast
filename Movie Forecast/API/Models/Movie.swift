@@ -13,30 +13,17 @@ struct MovieResponse: Decodable{
 }
 
 struct Movie: Codable, Identifiable, Hashable, Equatable{
-    
-//    let adult: Bool
+
     var backdropPath: String?
-//    let belongsToCollection: BelongsToCollection
-//    let budget: Int
     var genres: [Genre]?
     var genreIDS: [Int]?
-//    let homepage: String
     let id: Int
-//    let imdbID, originalLanguage, originalTitle
     let overview: String
-//    let popularity: Double
     var posterPath: String?
-//    let productionCompanies: [ProductionCompany]
-//    let productionCountries: [ProductionCountry]
     let releaseDate: String
-//    let revenue
     var runtime: Int?
-//    let spokenLanguages: [SpokenLanguage]
-//    let status, tagline, 
     let title: String
-//    let video: Bool
     let voteAverage: Double
-//    let voteCount: Int
     var videos: Videos?
     var watchProviders: WatchProviders?
 
@@ -48,29 +35,20 @@ struct Movie: Codable, Identifiable, Hashable, Equatable{
     }
     
     enum CodingKeys: String, CodingKey {
-//        case adult
+        
         case backdropPath = "backdrop_path"
-//        case belongsToCollection = "belongs_to_collection"
         case genres
         case genreIDS = "genre_ids"
         case id
-//        case imdbID = "imdb_id"
-//        case originalLanguage = "original_language"
-//        case originalTitle = "original_title"
         case overview
-//        , popularity
         case posterPath = "poster_path"
-//        case productionCompanies = "production_companies"
-//        case productionCountries = "production_countries"
         case releaseDate = "release_date"
         case runtime
-//        case spokenLanguages = "spoken_languages"
-//        case status, tagline, 
-             case title
+        case title
         case voteAverage = "vote_average"
-//        case voteCount = "vote_count"
         case videos
         case watchProviders = "watch/providers"
+        
     }
     
     static func == (lhs: Movie, rhs: Movie) -> Bool {
@@ -82,18 +60,6 @@ struct Movie: Codable, Identifiable, Hashable, Equatable{
     }
     func hash(into hasher: inout Hasher) { hasher.combine(id) }
 }
-
-//// MARK: - BelongsToCollection
-//struct BelongsToCollection: Codable {
-//    let id: Int
-//    let name, posterPath, backdropPath: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id, name
-//        case posterPath = "poster_path"
-//        case backdropPath = "backdrop_path"
-//    }
-//}
 
 // MARK: - Genre
 struct Genre: Codable, Hashable, Equatable{
@@ -109,7 +75,7 @@ struct Genre: Codable, Hashable, Equatable{
 // MARK: - Videos
 struct Videos: Codable, Hashable, Equatable{
 //    var id = UUID().uuidString
-    let results: [MResult]
+    let results: [VideoResult]
     static func == (lhs: Videos, rhs: Videos) -> Bool {
         lhs.results == rhs.results
     }
@@ -117,7 +83,7 @@ struct Videos: Codable, Hashable, Equatable{
 }
 
 // MARK: - Result
-struct MResult: Codable, Hashable, Equatable{
+struct VideoResult: Codable, Hashable, Equatable{
     let iso639_1, iso3166_1, name, key: String
     let site: String
     let size: Int
@@ -136,7 +102,7 @@ struct MResult: Codable, Hashable, Equatable{
         case publishedAt = "published_at"
         case id
     }
-    static func == (lhs: MResult, rhs: MResult) -> Bool {
+    static func == (lhs: VideoResult, rhs: VideoResult) -> Bool {
         lhs.key == rhs.key &&
         lhs.name == rhs.name
     }
@@ -169,7 +135,7 @@ struct watchProvidersResults: Codable, Hashable, Equatable {
 }
 // MARK: - Providers
 struct Providers: Codable, Hashable, Equatable {
-//    let link: String?
+
     let buy, rent: [Buy]?
     let flatrate: [Buy]?
     
@@ -183,20 +149,19 @@ struct Providers: Codable, Hashable, Equatable {
 
 // MARK: - Buy
 struct Buy: Codable, Hashable, Equatable {
+    
     let logoPath: String
-//    let providerID: Int
     let providerName: String
-//    let displayPriority: Int
 
     var logoURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/original\(logoPath)")!
     }
 
     enum CodingKeys: String, CodingKey {
+        
         case logoPath = "logo_path"
-//        case providerID = "provider_id"
         case providerName = "provider_name"
-//        case displayPriority = "display_priority"
+        
     }
     
     static func == (lhs: Buy, rhs: Buy) -> Bool {

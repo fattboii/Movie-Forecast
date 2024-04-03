@@ -210,6 +210,8 @@ extension MovieInfoView {
             Text("Trailers / Videos:")
                 .bold()
                 .font(.title2)
+                .padding(.bottom, 5)
+                .frame(maxWidth: .infinity, alignment: .leading)
             if let youtube = movie.videos?.results {
                 ForEach(youtube, id: \.self) {
                     video in
@@ -225,7 +227,8 @@ extension MovieInfoView {
                 }
             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(10)
+        
     }
     
     private func playVideo(url: URL) {

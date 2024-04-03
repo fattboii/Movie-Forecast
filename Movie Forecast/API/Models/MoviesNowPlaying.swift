@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+///THINK I CAN DELETE
 // MARK: - MoviesNowPlaying
 struct MoviesNowPlaying: Codable {
 //    let dates: Dates?
