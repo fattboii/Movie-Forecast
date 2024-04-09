@@ -7,12 +7,15 @@
 
 import SwiftUI
 import URLImage
+import WebKit
 import UIKit
 
 struct MovieInfoView: View {
     @State var movie: Movie
     
     @State private var isFilled = false
+    @State private var movieInfoLoaded = false
+    @State private var isShowingVideoPlayer = false
     
     var body: some View {
         ScrollView {
@@ -24,22 +27,22 @@ struct MovieInfoView: View {
         }
         .scrollIndicators(.hidden)
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear(perform: getMovieInfo)
+        .onAppear(perform: {
+                    if !movieInfoLoaded { // Check if movie info hasn't been loaded yet
+                        print("Going to get movie info")
+                        getMovieInfo()
+                        movieInfoLoaded = true
+                    }
+                })
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {
-                            // Toggle the state when the button is clicked
-                            self.isFilled.toggle()
-                        }) {
-                            // Use conditional rendering based on the state to display different images
-                            if isFilled {
-                                Image(systemName: "heart.fill")
-                                    .foregroundColor(.red) // Optionally set the color
-                            } else {
-                                Image(systemName: "heart")
-                                    .foregroundColor(.white) // Optionally set the color
-                            }
-                        }
+                    // Toggle the state when the button is clicked
+                    self.isFilled.toggle()
+                }) {
+                    // Use conditional rendering based on the state to display different images
+                    Image(systemName: isFilled ? "heart.fill" : "heart")
+                }
             }
         }
     }
@@ -220,9 +223,13 @@ extension MovieInfoView {
                         Spacer()
                         Button(action: {
                             playVideo(url: video.videoURL)
+//                            isShowingVideoPlayer.toggle()
                         }){
                             Image(systemName: "play.fill")
                         }
+//                        .sheet(isPresented: $isShowingVideoPlayer) {
+//                            VideoPlayerWebView(videoURL: video.videoURL)
+//                                }
                     }
                 }
             }
@@ -232,8 +239,29 @@ extension MovieInfoView {
     }
     
     private func playVideo(url: URL) {
-         UIApplication.shared.open(url)
+                UIApplication.shared.open(url)
     }
+//    struct VideoPlayerWebView: View {
+//        let videoURL: URL
+//
+//        var body: some View {
+//            WebView(urlLink: videoURL)
+//                .edgesIgnoringSafeArea(.all)
+//        }
+//    }
+//    struct WebView: UIViewRepresentable {
+//        let urlLink: URL
+//
+//        func makeUIView(context: Context) -> WKWebView {
+//            let webView = WKWebView()
+//            webView.load(URLRequest(url: urlLink))
+//            return webView
+//        }
+//
+//        func updateUIView(_ uiView: WKWebView, context: Context) {
+//            // Update the web view if needed
+//        }
+//    }
 }
 
 //#Preview {

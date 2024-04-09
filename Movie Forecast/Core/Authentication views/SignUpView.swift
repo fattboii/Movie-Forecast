@@ -18,7 +18,7 @@ struct SignUpView: View{
     @Binding var currentViewShowing: AuthProcess
     
     
-    //boolean for error message visability
+    //boolean for error message visibility
     @State private var credentialsErrorShowing: Bool = false
     
     var body: some View{
@@ -148,7 +148,7 @@ extension SignUpView {
         Task {
             do {
                 //attempts
-                let returnUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
+                let _ = try await AuthenticationManager.shared.createUser(email: email, password: password)
                 showLoginView()
             } catch {
                 credentialsErrorShowing = true

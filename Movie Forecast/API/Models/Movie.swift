@@ -74,7 +74,6 @@ struct Genre: Codable, Hashable, Equatable{
 
 // MARK: - Videos
 struct Videos: Codable, Hashable, Equatable{
-//    var id = UUID().uuidString
     let results: [VideoResult]
     static func == (lhs: Videos, rhs: Videos) -> Bool {
         lhs.results == rhs.results

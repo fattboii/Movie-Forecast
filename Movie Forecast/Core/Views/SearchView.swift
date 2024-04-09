@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct SearchView: View {
     @State private var searchInput: String = ""
@@ -17,6 +18,13 @@ struct SearchView: View {
                     ForEach(movies.results, id: \.self) { movie in
                         NavigationLink(destination: MovieInfoView(movie: movie)){
                             HStack{
+                                URLImage(movie.posterURL){
+                                    image in image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .clipShape(.rect(cornerRadius: 5))
+                                }
+                                .frame(width: 40, height: 70)
                                 Text(movie.title)
                                 Spacer()
                                 Text(movie.releaseDate.prefix(4))

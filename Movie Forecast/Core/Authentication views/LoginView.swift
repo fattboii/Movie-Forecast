@@ -93,7 +93,7 @@ extension LoginView{
     private func login() {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let _ = error{
-                //show wrong credientials error
+                //show wrong credentials error
                 credentialsErrorShowing = true
                 return
             }

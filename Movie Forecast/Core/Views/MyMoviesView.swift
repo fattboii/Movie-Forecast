@@ -12,14 +12,17 @@ struct MyMoviesView: View {
         NavigationStack {
             List{
                 HStack {
-                    Image(systemName: "heart")
                     Text("Coco")
+                    Spacer()
+                    Text("2017 >")
+                    
                 }
                 HStack {
-                    Image(systemName: "heart.fill")
-                    Text("Coco")
+                    Text("Fight Club")
+                    Spacer()
+                    Text("1999 >")
                 }
-            }.navigationTitle("Movie Forecast")
+            }.navigationTitle("My Movies")
         }
     }
 }
